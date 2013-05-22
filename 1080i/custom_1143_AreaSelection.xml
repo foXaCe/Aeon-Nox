@@ -1,10 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1143">
     <defaultcontrol always="true">4</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
         <control type="group">
             <posx>280</posx>
+            <include>Animation_OpenCloseZoom</include>
             <control type="image">
                 <posx>230</posx>
                 <posy>200</posy>
@@ -14,95 +15,72 @@
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                 <include>PanelGlowFade</include>
-                <include>Animation_VisibleChange400</include>
             </control>
             <control type="image">
                 <posx>230</posx>
                 <posy>200</posy>
-                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
                 <width>940</width>
                 <height>560</height>
                 <texture border="20">osd/osd_settings_back.png</texture>
+                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
-            <include>Animation_OpenCloseZoom</include>
             <control type="panel" id="4">
                 <posx>250</posx>
                 <posy>240</posy>
                 <width>900</width>
                 <height>540</height>
-                <itemgap>0</itemgap>
                 <aligny>center</aligny>
                 <scrolltime>0</scrolltime>
                 <orientation>vertical</orientation>
                 <onright>20</onright>
-                <animation effect="fade" time="200">Visible</animation>
-                <animation effect="fade" time="200">Hidden</animation>
-                <animation effect="fade" time="200">WindowOpen</animation>
-                <animation effect="fade" time="200">WindowClose</animation>
                 <itemlayout height="60" width="300">
                     <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
                         <width>300</width>
                         <height>60</height>
-                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         <texture>button-nofocus.png</texture>
+                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                     </control>
                     <control type="label">
-                        <posx>0</posx>
-                        <posy>0</posy>
                         <width>300</width>
                         <height>60</height>
-                        <aligny>center</aligny>
                         <textoffsetx>10</textoffsetx>
-                        <font>Font_Reg19</font>
-                        <textcolor>grey2</textcolor>
                         <label>$INFO[ListItem.Label]</label>
+                        <font>Font_Reg30_2</font>
+                        <textcolor>grey2</textcolor>
                     </control>
                 </itemlayout>
                 <focusedlayout height="60" width="300">
                     <control type="group">
                         <visible>Control.HasFocus(4)</visible>
                         <control type="image">
-                            <posx>0</posx>
-                            <posy>0</posy>
                             <width>300</width>
                             <height>60</height>
+                            <texture border="8">views/tripanel/listselect_fo.png</texture>
                             <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                            <texture>views/tripanel/listselect_fo.png</texture>
                         </control>
                         <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
                             <width>300</width>
                             <height>60</height>
-                            <aligny>center</aligny>
                             <textoffsetx>10</textoffsetx>
-                            <scroll>true</scroll>
-                            <font>Font_Reg19</font>
-                            <textcolor>white2</textcolor>
                             <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Reg30_2</font>
+                            <scroll>true</scroll>
                         </control>
                     </control>
                     <control type="group">
                         <visible>!Control.HasFocus(4)</visible>
                         <control type="image">
-                            <posx>0</posx>
-                            <posy>0</posy>
                             <width>300</width>
                             <height>60</height>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             <texture>button-nofocus.png</texture>
+                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
                             <width>300</width>
-                            <aligny>center</aligny>
                             <textoffsetx>10</textoffsetx>
-                            <font>Font_Reg19</font>
-                            <textcolor>grey2</textcolor>
                             <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Reg30_2</font>
+                            <textcolor>grey2</textcolor>
                         </control>
                     </control>
                 </focusedlayout>
@@ -141,23 +119,23 @@
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(Videos,Addons,return))</onclick>
                     </item>
                     <item>
-                        <label>42247</label>
+                        <label>31847</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42247])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31847])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(Videos,Files))</onclick>
                     </item>
                     <item>
-                        <label>42248</label>
+                        <label>31848</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42248])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31848])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(Videos,MovieGenres,return))</onclick>
                     </item>
                     <item>
-                        <label>42245</label>
+                        <label>31845</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42245])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31845])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(Videos,MovieSets,return))</onclick>
                     </item>
@@ -169,9 +147,9 @@
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(Weather))</onclick>
                     </item>
                     <item>
-                        <label>42249</label>
+                        <label>10040</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42249])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[10040])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(AddonBrowser))</onclick>
                     </item>
@@ -190,9 +168,9 @@
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(Programs,addons,return))</onclick>
                     </item>
                     <item>
-                        <label>42250</label>
+                        <label>31850</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42250])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31850])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(1124))</onclick>
                     </item>
@@ -218,52 +196,65 @@
                         <onclick>Skin.SetString(ItemToEdit.Path,ActivateWindow(Favourites))</onclick>
                     </item>
                     <item>
-                        <label>42251</label>
+                        <label>31851</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42251])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31851])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ActivateWindow(114))</onclick>
                     </item>
                     <item>
-                        <label>42252</label>
+                        <label>31852</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42252])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31852])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(MusicLibrary))</onclick>
                     </item>
                     <item>
-                        <label>42253</label>
+                        <label>$LOCALIZE[31852] ($LOCALIZE[133])</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42253])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31852])</onclick>
+                        <onclick>Dialog.Close(1143)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(MusicLibrary,artists,return))</onclick>
+                    </item>
+                    <item>
+                        <label>$LOCALIZE[31852] ($LOCALIZE[20108])</label>
+                        <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31852])</onclick>
+                        <onclick>Dialog.Close(1143)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(MusicLibrary,root,return))</onclick>
+                    </item>
+                    <item>
+                        <label>31853</label>
+                        <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31853])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(MusicFiles))</onclick>
                     </item>
                     <item>
-                        <label>42254</label>
+                        <label>31854</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42254])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31854])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ReplaceWindow(PVR))</onclick>
-                        <visible>System.GetBool(pvrmanager.enabled)</visible>
                     </item>
                     <item>
-                        <label>42218</label>
+                        <label>31818</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42218])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31818])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,ActivateWindow(1139))</onclick>
                     </item>
                     <item>
-                        <label>42255</label>
+                        <label>31855</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42255])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31855])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Path,ActivateWindow(1115))</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Path,ActivateWindow(1147))</onclick>
                     </item>
                     <item>
-                        <label>42256</label>
+                        <label>31856</label>
                         <onclick>Skin.SetString(ItemToEdit.Type,7)</onclick>
-                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[42256])</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.Label,$LOCALIZE[31856])</onclick>
                         <onclick>Dialog.Close(1143)</onclick>
                         <onclick>Skin.SetString(ItemToEdit.Path,FullScreen)</onclick>
                     </item>

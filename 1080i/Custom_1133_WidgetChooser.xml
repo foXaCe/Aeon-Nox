@@ -1,29 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1133">
     <onload>ClearProperty(NoStyleSelect)</onload>
     <defaultcontrol always="true">4</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
         <control type="group">
-            <posy>200</posy>
+            <posy>30</posy>
             <control type="image">
                 <posx>326</posx>
                 <posy>100</posy>
                 <width>1240</width>
-                <height>620</height>
+                <height>810</height>
                 <texture border="20">osd/osd_settings_back_glow.png</texture>
                 <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
                 <include>PanelGlowFade</include>
-                <include>Animation_VisibleChange400</include>
             </control>
             <control type="image">
                 <posx>326</posx>
                 <posy>100</posy>
                 <width>1240</width>
-                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-                <height>620</height>
+                <height>810</height>
                 <texture border="20">osd/osd_settings_back.png</texture>
+                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
             </control>
             <include>Animation_OpenCloseZoom</include>
             <control type="group">
@@ -32,517 +31,466 @@
                     <posx>347</posx>
                     <posy>240</posy>
                     <width>1200</width>
-                    <height>900</height>
-                    <itemgap>0</itemgap>
+                    <height>720</height>
                     <aligny>center</aligny>
                     <scrolltime>0</scrolltime>
                     <onup>4</onup>
                     <ondown>4</ondown>
                     <orientation>vertical</orientation>
-                    <itemlayout height="60" width="300">
+                    <itemlayout height="60" width="400">
                         <control type="image">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>300</width>
+                            <width>400</width>
                             <height>60</height>
-                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             <texture>button-nofocus.png</texture>
+                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                         </control>
                         <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>300</width>
+                            <width>400</width>
                             <height>60</height>
-                            <aligny>center</aligny>
                             <textoffsetx>10</textoffsetx>
-                            <font>Font_Reg19</font>
-                            <textcolor>grey2</textcolor>
                             <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Reg30_2</font>
+                            <textcolor>grey2</textcolor>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="60" width="300">
+                    <focusedlayout height="60" width="400">
                         <control type="group">
                             <visible>Control.HasFocus(4)</visible>
                             <control type="image">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>300</width>
+                                <width>400</width>
                                 <height>60</height>
+                                <texture border="8">views/tripanel/listselect_fo.png</texture>
                                 <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                                <texture>views/tripanel/listselect_fo.png</texture>
                             </control>
                             <control type="label">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>300</width>
+                                <width>400</width>
                                 <height>60</height>
-                                <aligny>center</aligny>
                                 <textoffsetx>10</textoffsetx>
-                                <scroll>true</scroll>
-                                <font>Font_Reg19</font>
-                                <textcolor>white2</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
+                                <font>Font_Reg30_2</font>
+                                <scroll>true</scroll>
                             </control>
                         </control>
                         <control type="group">
                             <visible>!Control.HasFocus(4)</visible>
                             <control type="image">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>300</width>
+                                <width>400</width>
                                 <height>60</height>
-                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                                 <texture>button-nofocus.png</texture>
+                                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                             </control>
                             <control type="label">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>300</width>
-                                <aligny>center</aligny>
+                                <width>400</width>
                                 <textoffsetx>10</textoffsetx>
-                                <font>Font_Reg19</font>
-                                <textcolor>grey2</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
+                                <font>Font_Reg30_2</font>
+                                <textcolor>grey2</textcolor>
                             </control>
                         </control>
                     </focusedlayout>
                     <content>
                         <item>
                             <label>$LOCALIZE[231]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.Reset(ItemToEdit.Widget)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.Reset(ItemToEdit.Widget2)</onclick>
+                            <onclick>Skin.Reset(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)])</onclick>
+                            <onclick>Skin.Reset(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title)</onclick>
                             <onclick>Dialog.Close(1133)</onclick>
                         </item>
                         <item>
                             <label>$LOCALIZE[31323]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentmovies,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentmovies2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,recentmovies,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31323])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(movies)</visible>
                         </item>
                         <item>
                             <label>$LOCALIZE[31222]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randommovies,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randommovies2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,randommovies,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31222])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(movies)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[42272]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,featuredmovies)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,featuredmovies)</onclick>
+                            <label>$LOCALIZE[31872]</label>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],featuredmoviesdefault)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31872])</onclick>
                             <visible>Library.HasContent(movies)</visible>
                             <onclick>Dialog.Close(1133)</onclick>
                         </item>
                         <item>
                             <label>$LOCALIZE[31335]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,inprogressmovies,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,inprogressmovies2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,watchlistmovies,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31335])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(movies)</visible>
                         </item>
                         <item>
                             <label>$LOCALIZE[31093]</label>
                             <onclick>RunScript(script.metadata.actors,borntoday,10,random)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,actors,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,actors2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,actors,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31336])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(movies) + System.HasAddon(script.metadata.actors)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[31323] (VPL)</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentmoviescustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentmoviescustom2,1124)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem9))</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>Library.HasContent(movies)</visible>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),4) + Substring(Skin.String(ItemToEdit.Path),special://profile/playlists/video/)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31222] (VPL)</label>
-                            <visible>Library.HasContent(movies)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randommoviescustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randommoviescustom2,1124)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem9))</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),4) + Substring(Skin.String(ItemToEdit.Path),special://profile/playlists/video/)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31335] (VPL)</label>
-                            <visible>Library.HasContent(movies)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,inprogressmoviescustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,inprogressmoviescustom2,1124)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem9))</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),4) + Substring(Skin.String(ItemToEdit.Path),special://profile/playlists/video/)</visible>
-                        </item>
-                        <item>
                             <label>$LOCALIZE[31324]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recenttv,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recenttv2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,recenttv,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31324])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(tvshows)</visible>
                         </item>
                         <item>
                             <label>$LOCALIZE[31220]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomtv,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomtv2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,randomtv,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31220])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(tvshows)</visible>
                         </item>
                         <item>
                             <label>$LOCALIZE[31464]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,watchlisttv,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,watchlisttv2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,watchlisttv,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31464])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(tvshows)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[42273]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,featuredtv)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,featuredtv)</onclick>
+                            <label>31819</label>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31819])</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,nextairedtv,1124)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <visible>Library.HasContent(tvshows)</visible>
+                        </item>
+                        <item>
+                            <label>$LOCALIZE[31873]</label>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],featuredtvdefault)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31873])</onclick>
                             <visible>Library.HasContent(tvshows)</visible>
                             <onclick>Dialog.Close(1133)</onclick>
                         </item>
                         <item>
-                            <label>$LOCALIZE[31324] (VPL)</label>
-                            <visible>Library.HasContent(tvshows)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recenttvcustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recenttvcustom2,1124)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem9))</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),4) + Substring(Skin.String(ItemToEdit.Path),special://profile/playlists/video/)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31220] (VPL)</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomtvcustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomtvcustom2,1124)</onclick>
-                            <visible>Library.HasContent(tvshows)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem9))</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),4)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31464] (VPL)</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,watchlisttvcustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,watchlisttvcustom2,1124)</onclick>
-                            <visible>Library.HasContent(tvshows)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=True, propertie=SecondCustomHomeItem9))</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),4)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31218]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentsongs,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentsongs2,1124)</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>Library.HasContent(music)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31067]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomsongs,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomsongs2,1124)</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>Library.HasContent(music)</visible>
-                        </item>
-                        <item>
                             <label>$LOCALIZE[31359]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentalbums,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentalbums2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,recentalbums,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31359])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(music)</visible>
                         </item>
                         <item>
                             <label>$LOCALIZE[31068]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomalbums,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomalbums2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,randomalbums,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31068])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(music)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[42274]</label>
+                            <label>$LOCALIZE[31874]</label>
                             <visible>Library.HasContent(music)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,featuredmusic)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,featuredmusic2)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)],featuredmusicdefault)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31068])</onclick>
                             <onclick>Dialog.Close(1133)</onclick>
                         </item>
                         <item>
                             <label>$LOCALIZE[31326]</label>
                             <visible>Library.HasContent(music)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,watchlistmusic,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,watchlistmusic2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,watchlistalbums,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31326])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <onclick>Dialog.Close(1133)</onclick>
                         </item>
                         <item>
+                            <label>31817</label>
+                            <onclick>SetProperty(CustomYesNoDialog,randomartists,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31817])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                        </item>
+                        <item>
                             <label>$LOCALIZE[31081]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentmusicvideos,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentmusicvideos2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,recentmusicvideos,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31081])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(MusicVideos)</visible>
                         </item>
                         <item>
                             <label>$LOCALIZE[31091]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randommusicvideos,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randommusicvideos2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,randommusicvideos,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31091])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                             <visible>Library.HasContent(MusicVideos)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[31359] (MPL)</label>
-                            <visible>Library.HasContent(music)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentalbumscustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentalbumscustom2,1124)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Last, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem9))</onclick>
+                            <label>31712</label>
+                            <onclick>SetProperty(CustomYesNoDialog,watchlistmusicvideos,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31712])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),5) + Substring(Skin.String(ItemToEdit.Path),special://profile/playlists/music/) + [[!IsEmpty(Window(Home).Property(CustomHomeItem1.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1)] | [!IsEmpty(Window(Home).Property(CustomHomeItem2.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2)] | [!IsEmpty(Window(Home).Property(CustomHomeItem3.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3)] | [!IsEmpty(Window(Home).Property(CustomHomeItem4.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4)] | [!IsEmpty(Window(Home).Property(CustomHomeItem5.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5)] | [!IsEmpty(Window(Home).Property(CustomHomeItem6.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6)] | [!IsEmpty(Window(Home).Property(CustomHomeItem7.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7)] | [!IsEmpty(Window(Home).Property(CustomHomeItem8.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8)] | [!IsEmpty(Window(Home).Property(CustomHomeItem9.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9)]]</visible>
+                            <visible>Library.HasContent(MusicVideos)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[31068] (MPL)</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomalbumscustom,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomalbumscustom2,1124)</onclick>
-                            <visible>Library.HasContent(music)</visible>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem1))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem2))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem3))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem4))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem5))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem6))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem7))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem8))</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=CustomHomeItem9))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem1,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem1))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem2,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem2))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem3,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem3))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem4,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem4))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem5,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem5))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem6,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem6))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem7,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem7))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem8,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem8))</onclick>
-                            <onclick condition="Skin.HasSetting(widget2) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9) + [Stringcompare(Skin.String(ItemToEdit.Type),4) | Stringcompare(Skin.String(ItemToEdit.Type),5)]">Skin.SetString(StartupSecondCustomHomeItem9,XBMC.RunScript(script.randomandlastitems, playlist=$INFO[Skin.String(ItemToEdit.Path)], method=Random, limit=10, unwatched=$INFO[Skin.String(IncludeWatchedCVPL)], resume=False, propertie=SecondCustomHomeItem9))</onclick>
-                            <visible>stringcompare(Skin.String(ItemToEdit.Type),5) + Substring(Skin.String(ItemToEdit.Path),special://profile/playlists/music/) + [[!IsEmpty(Window(Home).Property(CustomHomeItem1.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem1)] | [!IsEmpty(Window(Home).Property(CustomHomeItem2.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem2)] | [!IsEmpty(Window(Home).Property(CustomHomeItem3.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem3)] | [!IsEmpty(Window(Home).Property(CustomHomeItem4.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem4)] | [!IsEmpty(Window(Home).Property(CustomHomeItem5.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem5)] | [!IsEmpty(Window(Home).Property(CustomHomeItem6.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem6)] | [!IsEmpty(Window(Home).Property(CustomHomeItem7.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem7)] | [!IsEmpty(Window(Home).Property(CustomHomeItem8.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem8)] | [!IsEmpty(Window(Home).Property(CustomHomeItem9.1.Album)) + Stringcompare(Skin.String(MenuItem),CustomHomeItem9)]]</visible>
+                            <label>$LOCALIZE[31070]</label>
+                            <onclick>SetProperty(CustomYesNoDialog,randomaddons,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31070])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                        </item>
+                        <item>
+                            <label>1036</label>
+                            <onclick>RunScript(script.favourites)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,favouriteIcon,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[1036])</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                         </item>
                         <item>
                             <label>$LOCALIZE[31069] 1</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,IconPanel1)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,IconPanel1)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,Icon1,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,Icon Panel 1)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
                         </item>
                         <item>
                             <label>$LOCALIZE[31069] 2</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,IconPanel2)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,IconPanel2)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31070]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomaddons,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomaddons2,1124)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,Icon2,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,Icon Panel 2)</onclick>
                             <onclick>ActivateWindow(1137)</onclick>
                         </item>
                         <item>
                             <label>$LOCALIZE[31071]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,weather)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,weather)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,weather,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31071])</onclick>
+                            <onclick>ActivateWindow(1146)</onclick>
                             <visible>!IsEmpty(Weather.Plugin)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[31642]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,weatherpda)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,weatherpda)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                            <visible>System.HasAddon(weather.fanart.pda.style) + !IsEmpty(Weather.Plugin)</visible>
-                        </item>
-                        <item>
-                            <label>$LOCALIZE[31072]</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,system)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,system)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                        </item>
-                        <item>
-                            <label>42215</label>
-                            <onclick>XBMC.RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Latest'&amp;sort='Added'&amp;limit=10)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentpics,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,recentpics2,1124)</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>System.HasAddon(plugin.image.mypicsdb)</visible>
-                        </item>
-                        <item>
-                            <label>42216</label>
-                            <onclick>XBMC.RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Random'&amp;sort='Added'&amp;limit=10)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randompics,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randompics2,1124)</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                            <visible>System.HasAddon(plugin.image.mypicsdb)</visible>
-                        </item>
-                        <item>
-                            <label>42217</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomartists,1124)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">SetProperty(CustomYesNoDialog,randomartists2,1124)</onclick>
-                            <onclick>ActivateWindow(1137)</onclick>
-                        </item>
-                        <item>
-                            <label>42218</label>
-                            <onclick>RunScript(script.ExtraMusicInfo,info=NearEvents)</onclick>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,concertspanel)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,concertspanel)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                            <visible>System.HasAddon(script.ExtraMusicInfo)</visible>
-                        </item>
-                        <item>
-                            <label>42219</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,nextairedpanel)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,nextairedpanel)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                        </item>
-                        <item>
-                            <label>42220</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,babespanel)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,babespanel)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                        </item>
-                        <item>
-                            <label>42221</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,googlepanel)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,googlepanel)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
-                            <visible>SubString(Weather.Plugin,weather.google)</visible>
-                        </item>
-                        <item>
-                            <label>Weather Wunderground</label>
-                            <onclick condition="!Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget,wundergroundpanel)</onclick>
-                            <onclick condition="Skin.HasSetting(widget2)">Skin.SetString(ItemToEdit.Widget2,wundergroundpanel)</onclick>
-                            <onclick>Dialog.Close(1133)</onclick>
+                            <label>31183</label>
+                            <onclick>SetProperty(CustomYesNoDialog,wundergroundpanel,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,Weather Wunderground)</onclick>
+                            <onclick>ActivateWindow(1146)</onclick>
                             <visible>SubString(Weather.Plugin,weather.wunderground)</visible>
                         </item>
                         <item>
-                            <label>$LOCALIZE[42280]</label>
+                            <label>$LOCALIZE[31072]</label>
+                            <onclick>SetProperty(CustomYesNoDialog,systemclassic,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[138])</onclick>
+                            <onclick>ActivateWindow(1146)</onclick>
+                        </item>
+                        <item>
+                            <label>31815</label>
+                            <onclick>RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Latest'&amp;sort='Added'&amp;limit=10)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,recentpicsimages,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31815])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <visible>System.HasAddon(plugin.image.mypicsdb)</visible>
+                        </item>
+                        <item>
+                            <label>31816</label>
+                            <onclick>RunScript(plugin.image.mypicsdb,0,?action='setproperties'&amp;method='Random'&amp;sort='Added'&amp;limit=10)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,randompicsimages,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31816])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <visible>System.HasAddon(plugin.image.mypicsdb)</visible>
+                        </item>
+                        <item>
+                            <label>31818</label>
+                            <onclick>RunScript(script.extendedinfo,info=NearEvents)</onclick>
+                            <onclick>SetProperty(CustomYesNoDialog,concertspanel,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31818])</onclick>
+                            <onclick>ActivateWindow(1146)</onclick>
+                            <visible>System.HasAddon(script.extendedinfo)</visible>
+                        </item>
+                        <item>
+                            <label>31820</label>
+                            <onclick>SetProperty(CustomYesNoDialog,babesimagespanelcoversquare,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$LOCALIZE[31820])</onclick>
+                            <onclick>ActivateWindow(1146)</onclick>
+                        </item>
+                        <item>
+                            <label>$INFO[Window(home).Property(bigpictures.scraper.title)]</label>
+                            <onclick>SetProperty(CustomYesNoDialog,thebigpictureimages,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,The Big Picture)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                        </item>
+                        <item>
+                            <label>XKCD</label>
+                            <onclick>SetProperty(CustomYesNoDialog,xkcdimages,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,XKCD)</onclick>
+                            <onclick>RunScript(script.extendedinfo,info=xkcd)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <visible>System.HasAddon(script.extendedinfo)</visible>
+                        </item>
+                        <item>
+                            <label>Cyanide &amp; Happiness</label>
+                            <onclick>SetProperty(CustomYesNoDialog,cyanideimages,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,Cyanide &amp; Happiness)</onclick>
+                            <onclick>RunScript(script.extendedinfo,info=cyanide)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <visible>System.HasAddon(script.extendedinfo)</visible>
+                        </item>
+                        <item>
+                            <label>31199</label>
+                            <onclick>SetProperty(CustomYesNoDialog,rssnews,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,News)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                        </item>
+                        <item>
+                            <label>$LOCALIZE[20304]</label>
                             <onclick>Dialog.Close(1133)</onclick>
                             <onclick>ActivateWindow(1162)</onclick>
-                            <visible>System.HasAddon(script.rssclient)</visible>
+                            <visible>System.HasAddon(script.extendedinfo)</visible>
+                        </item>
+                        <item>
+                            <label>31327</label>
+                            <onclick>SetProperty(CustomYesNoDialog,mostplayedroms,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,Most Played ROMs)</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <visible>System.HasAddon(script.games.rom.collection.browser)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist1.Label)] ($INFO[Skin.String(SmartPlaylist1.Type)])</label>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist1.Label)])</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist1.Type),Movie)">SetProperty(CustomYesNoDialog,movies1custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist1.Type),Episode)">SetProperty(CustomYesNoDialog,tv1custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist1.Type),Music)">SetProperty(CustomYesNoDialog,albums1custom,1124)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist1.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget)</visible>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist2.Label)] ($INFO[Skin.String(SmartPlaylist2.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist2.Type),Movie)">SetProperty(CustomYesNoDialog,movies2custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist2.Type),Episode)">SetProperty(CustomYesNoDialog,tv2custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist2.Type),Music)">SetProperty(CustomYesNoDialog,albums2custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist2.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist2.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist3.Label)] ($INFO[Skin.String(SmartPlaylist3.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist3.Type),Movie)">SetProperty(CustomYesNoDialog,movies3custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist3.Type),Episode)">SetProperty(CustomYesNoDialog,tv3custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist3.Type),Music)">SetProperty(CustomYesNoDialog,albums3custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist3.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist3.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist4.Label)] ($INFO[Skin.String(SmartPlaylist4.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist4.Type),Movie)">SetProperty(CustomYesNoDialog,movies4custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist4.Type),Episode)">SetProperty(CustomYesNoDialog,tv4custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist4.Type),Music)">SetProperty(CustomYesNoDialog,albums4custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist4.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist4.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist5.Label)] ($INFO[Skin.String(SmartPlaylist5.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist5.Type),Movie)">SetProperty(CustomYesNoDialog,movies5custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist5.Type),Episode)">SetProperty(CustomYesNoDialog,tv5custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist5.Type),Music)">SetProperty(CustomYesNoDialog,albums5custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist5.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist5.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist6.Label)] ($INFO[Skin.String(SmartPlaylist6.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist6.Type),Movie)">SetProperty(CustomYesNoDialog,movies6custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist6.Type),Episode)">SetProperty(CustomYesNoDialog,tv6custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist6.Type),Music)">SetProperty(CustomYesNoDialog,albums6custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist6.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist6.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist7.Label)] ($INFO[Skin.String(SmartPlaylist7.Type)])</label>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist7.Label)])</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist7.Type),Movie)">SetProperty(CustomYesNoDialog,movies7custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist7.Type),Episode)">SetProperty(CustomYesNoDialog,tv7custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist7.Type),Music)">SetProperty(CustomYesNoDialog,albums7custom,1124)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist7.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget2)</visible>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist8.Label)] ($INFO[Skin.String(SmartPlaylist8.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist8.Type),Movie)">SetProperty(CustomYesNoDialog,movies8custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist8.Type),Episode)">SetProperty(CustomYesNoDialog,tv8custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist8.Type),Music)">SetProperty(CustomYesNoDialog,albums8custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist8.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist8.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget2)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist9.Label)] ($INFO[Skin.String(SmartPlaylist9.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist9.Type),Movie)">SetProperty(CustomYesNoDialog,movies9custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist9.Type),Episode)">SetProperty(CustomYesNoDialog,tv9custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist9.Type),Music)">SetProperty(CustomYesNoDialog,albums9custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist9.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist9.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget2)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist10.Label)] ($INFO[Skin.String(SmartPlaylist10.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist10.Type),Movie)">SetProperty(CustomYesNoDialog,movies10custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist10.Type),Episode)">SetProperty(CustomYesNoDialog,tv10custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist10.Type),Music)">SetProperty(CustomYesNoDialog,albums10custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist10.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist10.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget2)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist11.Label)] ($INFO[Skin.String(SmartPlaylist11.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist11.Type),Movie)">SetProperty(CustomYesNoDialog,movies11custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist11.Type),Episode)">SetProperty(CustomYesNoDialog,tv11custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist11.Type),Music)">SetProperty(CustomYesNoDialog,albums11custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist11.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist11.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget2)</visible>
+                        </item>
+                        <item>
+                            <label>$INFO[Skin.String(SmartPlaylist12.Label)] ($INFO[Skin.String(SmartPlaylist12.Type)])</label>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist12.Type),Movie)">SetProperty(CustomYesNoDialog,movies12custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist12.Type),Episode)">SetProperty(CustomYesNoDialog,tv12custom,1124)</onclick>
+                            <onclick condition="Substring(Skin.String(SmartPlaylist12.Type),Music)">SetProperty(CustomYesNoDialog,albums12custom,1124)</onclick>
+                            <onclick>Skin.SetString(ItemToEdit.$INFO[Window(1124).Property(WidgetSelection)]Title,$ESCINFO[Skin.String(SmartPlaylist12.Label)])</onclick>
+                            <onclick>ActivateWindow(1137)</onclick>
+                            <onclick>Dialog.Close(1133)</onclick>
+                            <visible>!IsEmpty(Skin.String(SmartPlaylist12.Path))</visible>
+                            <visible>Stringcompare(Window(1124).Property(WidgetSelection),Widget2)</visible>
                         </item>
                     </content>
+                </control>
+                <control type="image">
+                    <description>left Arrow</description>
+                    <posx>567</posx>
+                    <posy>190</posy>
+                    <width>786</width>
+                    <height>30</height>
+                    <texture flipy="true">wall/wall_arrow_vertical.png</texture>
+                    <visible>Container(4).HasPrevious</visible>
+                    <include>Animation_DialogPopup</include>
+                </control>
+                <control type="image">
+                    <description>right Arrow</description>
+                    <posx>567</posx>
+                    <posy>990</posy>
+                    <width>786</width>
+                    <height>30</height>
+                    <texture>wall/wall_arrow_vertical.png</texture>
+                    <visible>Container(4).HasNext</visible>
+                    <include>Animation_DialogPopup</include>
                 </control>
             </control>
         </control>

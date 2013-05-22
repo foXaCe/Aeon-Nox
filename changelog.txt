@@ -1,3 +1,70 @@
+[B]4.1.9[/B]
+- Updated language files from Transifex
+
+[B]4.1.8[/B]
+- Updated language files from Transifex
+
+[B]4.1.7[/B]
+- Updated language files from Transifex
+
+[B]4.1.6[/B]
+- Updated language files from Transifex
+
+[B]4.1.5[/B]
+- Updated language files from Transifex
+
+[B]4.1.4[/B]
+- new Music Info Mode
+- TheBigPicture Widgets
+- new TVGuide Layout
+- new Bottom Menu
+- Bugfixes
+- Updated language files from Transifex
+
+[B]4.0.9[/B]
+- Removed image
+- New Aeon Nox logo.
+- Several fixes --> https://github.com/BigNoid/Aeon-Nox/commits/master
+
+[B]4.0.8[/B]
+- Updated language files from Transifex
+
+[B]4.0.5[/B]
+- Updated language files from Transifex
+
+[B]4.0.4[/B]
+- Updated language files from Transifex
+
+[B]4.0.3[/B]
+- Updated language files from Transifex
+
+[B]4.0.2[/B]
+- Updated language files from Transifex
+
+[B]4.0.0[/B]
+- Frodo compatibility only.
+- Added new theme "Square": No more rounded edges. Available in Appearance settings.
+- Added new fontset "Big": a 4px increase of fontsize. Available in Appearance settings.
+- To check out a full list of changes visit: https://github.com/BigNoid/Aeon-Nox/commits/master
+
+[B]3.6.1[/B]
+- Fixed potential freezing of GUI when opening dialogs.
+- Fixed custom startup focus.
+- Fixed plot/outline toggle.
+- Fixed label2 in Addonbrowser TriPanel view.
+- Fixed background overlay (glow mode) in "Featured" window.
+- Fixed dark background in LowList, BigFan, Episode and Shift view when alternative InfoPanel layout was selected.
+- Fixed cutoff bordertexture in InfoWall episodes.
+- Fixed missing timepanel on music osd.
+- Show comment field in InfoWall textbox when no content is set.
+- Fixed label2 showing 3 times in InfoWall view when no content is set.
+- Reverted extra info on Panel view list.
+- Updated Russian language - [B]thx Roman_V_M[/B]
+- Updated French language - [B]thx Rififi77[/B]
+- Fixed infopanel for programs
+- Fixed PVR EPG crash - [B]thx xhaggi[/B]
+- Show music extrafanart on parent folder and *All Items* list entries
+
 [B]3.6.0[/B]
 - Added "White" theme
 - Option for seperate font color
