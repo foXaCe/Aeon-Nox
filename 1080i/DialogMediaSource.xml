@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<window id="129">
+<?xml version="1.0" encoding="utf-8"?>
+<window>
     <defaultcontrol always="true">11</defaultcontrol>
     <coordinates>
-        <system>1</system>
         <posx>0</posx>
         <posy>0</posy>
+        <system>1</system>
     </coordinates>
     <include>Animation_DialogPopup</include>
     <controls>
@@ -15,8 +15,6 @@
             <width>1270</width>
             <height>492</height>
             <control type="image">
-                <posx>0</posx>
-                <posy>0</posy>
                 <width>1270</width>
                 <height>492</height>
                 <texture>dialogs/addsource_back_glow.png</texture>
@@ -25,8 +23,6 @@
                 <visible>!Skin.HasSetting(DisableGlowbar)</visible>
             </control>
             <control type="image">
-                <posx>0</posx>
-                <posy>0</posy>
                 <width>1270</width>
                 <height>492</height>
                 <texture>dialogs/addsource_back.png</texture>
@@ -45,11 +41,9 @@
                 <itemlayout height="62">
                     <control type="label">
                         <posx>8</posx>
-                        <posy>0</posy>
                         <width>908</width>
                         <height>48</height>
                         <font>Font_Info</font>
-                        <aligny>center</aligny>
                         <textcolor>9bFFFFFF</textcolor>
                         <info>ListItem.Label</info>
                     </control>
@@ -57,11 +51,9 @@
                 <focusedlayout height="62">
                     <control type="label">
                         <posx>8</posx>
-                        <posy>0</posy>
                         <width>908</width>
                         <height>48</height>
                         <font>Font_Info</font>
-                        <aligny>center</aligny>
                         <textcolor>white6</textcolor>
                         <info>ListItem.Label</info>
                     </control>
@@ -72,8 +64,8 @@
                 <posy>69</posy>
                 <width>980</width>
                 <height>261</height>
-                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <texture>dialogs/addsource_highlighttop.png</texture>
+                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <include>Animation_CommonFade</include>
                 <visible>Control.HasFocus(10)</visible>
             </control>
@@ -83,11 +75,9 @@
                 <width>1010</width>
                 <height>42</height>
                 <align>center</align>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
-                <font>Font_Reg20</font>
                 <label>1021</label>
-                <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(10)">Conditional</animation>
+                <font>Font_Reg32</font>
+                <animation effect="fade" start="100" end="60" time="240" condition="!Control.HasFocus(10)">Conditional</animation>
             </control>
             <control type="label" id="0">
                 <posx>15</posx>
@@ -95,26 +85,22 @@
                 <width>1010</width>
                 <height>42</height>
                 <align>center</align>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
-                <font>Font_Reg20</font>
                 <label>1022</label>
-                <animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(12)">Conditional</animation>
+                <font>Font_Reg32</font>
+                <animation effect="fade" start="100" end="60" time="240" condition="!Control.HasFocus(12)">Conditional</animation>
             </control>
             <control type="button" id="12">
                 <posx>27</posx>
                 <posy>386</posy>
                 <width>980</width>
                 <height>66</height>
-                <font>Font_Reg20</font>
                 <align>center</align>
-                <aligny>center</aligny>
                 <texturefocus>-</texturefocus>
                 <texturenofocus>-</texturenofocus>
+                <label>-</label>
+                <font>Font_Reg32</font>
                 <textcolor>FF6a6565</textcolor>
                 <selectedcolor>$VAR[FontColorVar]</selectedcolor>
-                <focusedcolor>white</focusedcolor>
-                <label>-</label>
                 <onup>10</onup>
                 <onleft>19</onleft>
                 <onright>19</onright>
@@ -125,103 +111,91 @@
                 <posy>382</posy>
                 <width>980</width>
                 <height>76</height>
-                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <texture>dialogs/addsource_highlight.png</texture>
+                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
                 <include>Animation_CommonFade</include>
                 <visible>Control.HasFocus(12)</visible>
             </control>
             <control type="group" id="9000">
-                <posx>573</posx>
-                <posy>146</posy>
+                <posx>1023</posx>
+                <posy>46</posy>
                 <control type="button" id="11">
-                    <posy>0</posy>
                     <width>230</width>
                     <height>62</height>
-                    <font>Font_Reg20</font>
-                    <label>1024</label>
-                    <textcolor>white2</textcolor>
-                    <focusedcolor>white</focusedcolor>
                     <textoffsetx>30</textoffsetx>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>1024</label>
+                    <font>Font_Reg32</font>
                     <onleft>10</onleft>
                     <onright>10</onright>
                     <onup>18</onup>
                     <ondown>13</ondown>
-                    <texturenofocus>-</texturenofocus>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                    <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
                 </control>
                 <control type="button" id="13">
                     <posy>62</posy>
                     <width>230</width>
                     <height>62</height>
-                    <font>Font_Reg20</font>
-                    <label>15019</label>
-                    <textcolor>white2</textcolor>
-                    <focusedcolor>white</focusedcolor>
                     <textoffsetx>30</textoffsetx>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>15019</label>
+                    <font>Font_Reg32</font>
                     <onleft>10</onleft>
                     <onright>10</onright>
                     <onup>11</onup>
                     <ondown>14</ondown>
-                    <texturenofocus>-</texturenofocus>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                    <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
                 </control>
                 <control type="button" id="14">
                     <posy>123</posy>
                     <width>230</width>
                     <height>62</height>
-                    <font>Font_Reg20</font>
-                    <label>1210</label>
-                    <textcolor>white2</textcolor>
-                    <focusedcolor>white</focusedcolor>
                     <textoffsetx>30</textoffsetx>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>1210</label>
+                    <font>Font_Reg32</font>
                     <onleft>10</onleft>
                     <onright>10</onright>
                     <onup>13</onup>
                     <ondown>19</ondown>
-                    <texturenofocus>-</texturenofocus>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                    <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
                 </control>
                 <control type="button" id="19">
                     <posy>184</posy>
                     <width>230</width>
                     <height>62</height>
-                    <font>Font_Reg20</font>
-                    <label>222</label>
-                    <textcolor>white2</textcolor>
-                    <focusedcolor>white</focusedcolor>
                     <textoffsetx>30</textoffsetx>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>222</label>
+                    <font>Font_Reg32</font>
                     <onleft>12</onleft>
                     <onright>12</onright>
                     <onup>14</onup>
                     <ondown>18</ondown>
-                    <texturenofocus>-</texturenofocus>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                    <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
                 </control>
                 <control type="button" id="18">
                     <posy>246</posy>
                     <width>230</width>
                     <height>62</height>
-                    <font>Font_Reg20</font>
-                    <label>186</label>
-                    <textcolor>white2</textcolor>
-                    <focusedcolor>white</focusedcolor>
                     <textoffsetx>30</textoffsetx>
+                    <texturefocus border="8">views/tripanel/listselect_fo.png</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <label>186</label>
+                    <font>Font_Reg32</font>
                     <onleft>12</onleft>
                     <onright>12</onright>
                     <onup>19</onup>
                     <ondown>11</ondown>
-                    <texturenofocus>-</texturenofocus>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                    <texturefocus>views/tripanel/listselect_fo.png</texturefocus>
                 </control>
             </control>
             <control type="image">
                 <posx>1</posx>
-                <posy>0</posy>
                 <width>1270</width>
                 <height>492</height>
                 <texture>dialogs/addsource_front.png</texture>

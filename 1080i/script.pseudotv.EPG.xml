@@ -1,34 +1,44 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window>
     <allowoverlay>no</allowoverlay>
     <coordinates>
-        <system>1</system>
         <posx>0</posx>
         <posy>0</posy>
+        <system>1</system>
     </coordinates>
-    <animation type="WindowOpen" reversible="true">
-        <effect type="zoom" start="500" end="100" center="960,540" time="200" />
-        <effect type="fade" start="0" end="100" time="200" />
-    </animation>
-    <animation type="WindowClose" reversible="false">
-        <effect type="zoom" start="100" end="300" center="960,540" easing="in" tween="back" time="300" />
-        <effect type="fade" start="100" end="0" time="300" />
-    </animation>
+    <include>Animation_DialogZoom</include>
     <controls>
-        <include>Furniture_SettingsBackPanel</include>
         <control type="image">
-            <posx>105</posx>
-            <posy>66</posy>
-            <width>270</width>
-            <height>108</height>
+            <posx>36</posx>
+            <posy>36</posy>
+            <width>1846</width>
+            <height>1006</height>
+            <texture>settings/settings_panelback_shadow.png</texture>
+            <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+            <include>Animation_VisibleChange400</include>
+        </control>
+        <control type="image">
+            <posx>34</posx>
+            <posy>34</posy>
+            <width>1850</width>
+            <height>1010</height>
+            <texture>settings/settings_panelback.png</texture>
+            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+        </control>
+        <control type="image">
+            <posx>50</posx>
+            <posy>37</posy>
+            <width>360</width>
+            <height>178</height>
             <aspectratio>keep</aspectratio>
-            <texture>EpgLogo.png</texture>
+            <texture>XBMC_Logo.png</texture>
+            <colordiffuse>white</colordiffuse>
         </control>
         <control type="group">
-            <posy>0</posy>
             <control type="grouplist">
                 <posx>417</posx>
-                <posy>750</posy>
+                <posy>730</posy>
                 <width>1374</width>
                 <height>60</height>
                 <orientation>horizontal</orientation>
@@ -37,14 +47,14 @@
                     <width min="40" max="600">auto</width>
                     <height>60</height>
                     <label>Show Name</label>
-                    <font>Font_Reg20</font>
+                    <font>Font_Reg32</font>
                     <textcolor>white</textcolor>
                 </control>
                 <control type="label">
                     <width>15</width>
                     <height>60</height>
                     <label>•</label>
-                    <font>Font_Reg20</font>
+                    <font>Font_Reg32</font>
                     <textcolor>white</textcolor>
                     <visible>!IsEmpty(Control.Getlabel(501))</visible>
                 </control>
@@ -52,7 +62,7 @@
                     <width min="40" max="800">auto</width>
                     <height>60</height>
                     <label>Show Title</label>
-                    <font>Font_Reg20</font>
+                    <font>Font_Reg32</font>
                     <textcolor>white</textcolor>
                 </control>
             </control>
@@ -61,11 +71,10 @@
                 <posy>795</posy>
                 <width>1374</width>
                 <height>150</height>
-                <label>Show Description</label>
-                <font>Font_Reg20</font>
                 <aligny>top</aligny>
+                <label>Show Description</label>
+                <font>Font_Reg32</font>
                 <textcolor>white6</textcolor>
-                <shadowcolor>black</shadowcolor>
                 <wrapmultiline>true</wrapmultiline>
                 <scroll>true</scroll>
             </control>
@@ -74,14 +83,14 @@
                 <posy>848</posy>
                 <width>262</width>
                 <height>150</height>
-                <aspectratio>scale</aspectratio>
                 <aligny>top</aligny>
+                <aspectratio>scale</aspectratio>
             </control>
             <control type="button" id="100">
-                <visible>false</visible>
-                <label>grey2</label>
-                <!--un-focused text color-->
+                <label>88FFFFFF</label>
                 <label2>FFe5e5e5</label2>
+                <visible>false</visible>
+                <!--un-focused text color-->
                 <!--focused text color-->
             </control>
             <control type="label" id="101">
@@ -90,9 +99,8 @@
                 <width>405</width>
                 <height>39</height>
                 <label>Time 1</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <control type="label" id="102">
                 <posx>866</posx>
@@ -100,9 +108,8 @@
                 <width>405</width>
                 <height>39</height>
                 <label>Time 2</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <control type="label" id="103">
                 <posx>1334</posx>
@@ -110,9 +117,8 @@
                 <width>405</width>
                 <height>39</height>
                 <label>Time 2</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <control type="label" id="104">
                 <posx>417</posx>
@@ -120,9 +126,8 @@
                 <width>468</width>
                 <height>39</height>
                 <label>Current Date</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--SHOW LISTINGS-->
             <control type="group" id="111">
@@ -161,11 +166,20 @@
                 <width>1464</width>
                 <height>63</height>
             </control>
+            <!-- colordiffuse doesnt work  -->
             <control type="image" id="120">
                 <posx>387</posx>
-                <posy>176</posy>
+                <posy>116</posy>
                 <width>30</width>
                 <height>510</height>
+            </control>
+            <!-- Nav texture -->
+            <control type="image">
+                <posx>1440</posx>
+                <posy>640</posy>
+                <width>360</width>
+                <height>30</height>
+                <texture>script.pseudotv/NavFlagEpg.png</texture>
             </control>
             <!--CHANNEL BUTTONS AND LABELS-->
             <control type="label" id="301">
@@ -173,22 +187,19 @@
                 <posy>180</posy>
                 <width>279</width>
                 <height>63</height>
-                <label>Channel</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
+                <label>19148</label>
+                <font>Font_Reg32</font>
                 <scroll>true</scroll>
-                <textcolor>white2</textcolor>
             </control>
             <control type="label" id="311">
                 <posx>108</posx>
                 <posy>180</posy>
                 <width>45</width>
                 <height>63</height>
-                <label>1</label>
-                <font>Font_Reg20</font>
                 <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <label>1</label>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--<control type="image" id="321">
             
@@ -204,10 +215,8 @@
                 <posy>255</posy>
                 <width>279</width>
                 <height>63</height>
-                <label>Channel</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
+                <label>19148</label>
+                <font>Font_Reg32</font>
                 <scroll>true</scroll>
             </control>
             <control type="label" id="312">
@@ -215,11 +224,10 @@
                 <posy>255</posy>
                 <width>45</width>
                 <height>63</height>
-                <label>2</label>
-                <font>Font_Reg20</font>
                 <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <label>2</label>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--<control type="image" id="322">
             
@@ -235,10 +243,8 @@
                 <posy>330</posy>
                 <width>279</width>
                 <height>63</height>
-                <label>Channel</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
+                <label>19148</label>
+                <font>Font_Reg32</font>
                 <scroll>true</scroll>
             </control>
             <control type="label" id="313">
@@ -246,11 +252,10 @@
                 <posy>330</posy>
                 <width>45</width>
                 <height>63</height>
-                <label>3</label>
-                <font>Font_Reg20</font>
                 <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <label>3</label>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--<control type="image" id="323">
             
@@ -266,10 +271,8 @@
                 <posy>405</posy>
                 <width>279</width>
                 <height>63</height>
-                <label>Channel</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
+                <label>19148</label>
+                <font>Font_Reg32</font>
                 <scroll>true</scroll>
             </control>
             <control type="label" id="314">
@@ -277,11 +280,10 @@
                 <posy>405</posy>
                 <width>45</width>
                 <height>63</height>
-                <label>4</label>
-                <font>Font_Reg20</font>
                 <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <label>4</label>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--<control type="image" id="324">
             
@@ -297,10 +299,8 @@
                 <posy>480</posy>
                 <width>279</width>
                 <height>63</height>
-                <label>Channel</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
+                <label>19148</label>
+                <font>Font_Reg32</font>
                 <scroll>true</scroll>
             </control>
             <control type="label" id="315">
@@ -308,11 +308,10 @@
                 <posy>480</posy>
                 <width>45</width>
                 <height>63</height>
-                <label>5</label>
-                <font>Font_Reg20</font>
                 <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <label>5</label>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--<control type="image" id="325">
             
@@ -328,10 +327,8 @@
                 <posy>555</posy>
                 <width>279</width>
                 <height>63</height>
-                <label>Channel</label>
-                <font>Font_Reg20</font>
-                <aligny>center</aligny>
-                <textcolor>white2</textcolor>
+                <label>19148</label>
+                <font>Font_Reg32</font>
                 <scroll>true</scroll>
             </control>
             <control type="label" id="316">
@@ -339,11 +336,10 @@
                 <posy>555</posy>
                 <width>45</width>
                 <height>63</height>
-                <label>6</label>
-                <font>Font_Reg20</font>
                 <align>right</align>
-                <aligny>center</aligny>
-                <textcolor>$VAR[FontColorVar]</textcolor>
+                <label>6</label>
+                <font>Font_Reg32</font>
+                <textcolor>FF6db9e5</textcolor>
             </control>
             <!--<control type="image" id="326">
             

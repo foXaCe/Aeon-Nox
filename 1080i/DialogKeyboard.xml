@@ -1,33 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<window id="103">
+<?xml version="1.0" encoding="utf-8"?>
+<window>
     <defaultcontrol>305</defaultcontrol>
     <zorder>6</zorder>
     <include>Animation_DialogPopup</include>
     <controls>
         <control type="image" id="0">
-            <texture>$VAR[WidgetBackVar]</texture>
             <posx>489</posx>
             <posy>273</posy>
             <width>940</width>
             <height>474</height>
+            <texture>keyboard/keyboard_back.png</texture>
         </control>
         <control type="label" id="311">
-            <posx>0</posx>
             <posy>308</posy>
             <width>1920</width>
             <height>33</height>
-            <font>Font_Reg19</font>
             <align>center</align>
+            <font>Font_Reg30_2</font>
             <textcolor>$VAR[FontColorVar]</textcolor>
         </control>
         <control type="label" id="310">
-            <posx>0</posx>
             <posy>688</posy>
             <width>1920</width>
             <height>33</height>
-            <font>Font_Reg21</font>
             <align>center</align>
-            <onup>49</onup>
+            <font>Font_Reg35</font>
         </control>
         <control type="group">
             <posx>622</posx>
@@ -36,14 +33,13 @@
             <height>434</height>
             <!-- Row 1 -->
             <control type="group">
-                <posy>0</posy>
                 <control type="togglebutton" id="304">
+                    <label>20180</label>
+                    <altlabel>[COLOR=$VAR[ColorDiffuseVar]]$LOCALIZE[20180][/COLOR]</altlabel>
                     <onleft>48</onleft>
                     <onright>49</onright>
                     <onup>300</onup>
                     <ondown>307</ondown>
-                    <label>20180</label>
-                    <altlabel>[COLOR=$VAR[ColorDiffuseVar]]$LOCALIZE[20180][/COLOR]</altlabel>
                     <include>Objects_DoubleKeyOff</include>
                 </control>
                 <control type="button" id="49">
@@ -131,11 +127,11 @@
             <control type="group">
                 <posy>63</posy>
                 <control type="button" id="307">
+                    <label>1006</label>
                     <onleft>80</onleft>
                     <onright>81</onright>
                     <onup>304</onup>
                     <ondown>303</ondown>
-                    <label>1006</label>
                     <include>Objects_DoubleKeyOff</include>
                 </control>
                 <control type="button" id="81">
@@ -223,12 +219,12 @@
             <control type="group">
                 <posy>126</posy>
                 <control type="togglebutton" id="303">
+                    <label>20179</label>
+                    <altlabel>[COLOR=$VAR[ColorDiffuseVar]]$LOCALIZE[20179][/COLOR]</altlabel>
                     <onleft>76</onleft>
                     <onright>65</onright>
                     <onup>307</onup>
                     <ondown>302</ondown>
-                    <label>20179</label>
-                    <altlabel>[COLOR=$VAR[ColorDiffuseVar]]$LOCALIZE[20179][/COLOR]</altlabel>
                     <include>Objects_DoubleKeyOff</include>
                 </control>
                 <control type="button" id="65">
@@ -317,12 +313,12 @@
             <control type="group">
                 <posy>189</posy>
                 <control type="togglebutton" id="302">
+                    <label>$LOCALIZE[20178]</label>
+                    <altlabel>[COLOR=$VAR[ColorDiffuseVar]]$LOCALIZE[20178][/COLOR]</altlabel>
                     <onleft>8</onleft>
                     <onright>90</onright>
                     <onup>303</onup>
                     <ondown>300</ondown>
-                    <label>$LOCALIZE[20178]</label>
-                    <altlabel>[COLOR=$VAR[ColorDiffuseVar]]$LOCALIZE[20178][/COLOR]</altlabel>
                     <include>Objects_DoubleKeyOff</include>
                 </control>
                 <control type="button" id="90">
@@ -383,16 +379,15 @@
                 </control>
                 <control type="button" id="8">
                     <posx>567</posx>
-                    <onleft>77</onleft>
-                    <onright>302</onright>
-                    <onup>76</onup>
-                    <ondown>306</ondown>
-                    <label>20181</label>
-                    <posy>0</posy>
                     <width>228</width>
                     <height>102</height>
                     <texturefocus>keyboard/keyboard_triplef.png</texturefocus>
                     <texturenofocus>keyboard/keyboard_triplenf.png</texturenofocus>
+                    <label>20181</label>
+                    <onleft>77</onleft>
+                    <onright>302</onright>
+                    <onup>76</onup>
+                    <ondown>306</ondown>
                     <include>Objects_KeyOffVars</include>
                 </control>
             </control>
@@ -400,43 +395,42 @@
             <control type="group">
                 <posy>252</posy>
                 <control type="button" id="300">
+                    <label>$LOCALIZE[20177]</label>
                     <onleft>306</onleft>
                     <onright>32</onright>
                     <onup>302</onup>
                     <ondown>304</ondown>
-                    <label>$LOCALIZE[20177]</label>
                     <include>Objects_DoubleKeyOff</include>
                 </control>
                 <control type="button" id="32">
                     <posx>126</posx>
+                    <width>417</width>
+                    <height>102</height>
+                    <texturefocus>keyboard/keyboard_spacef.png</texturefocus>
+                    <texturenofocus>keyboard/keyboard_spacenf.png</texturenofocus>
                     <label>$LOCALIZE[20182]</label>
                     <onleft>300</onleft>
                     <onright>305</onright>
                     <onup>90</onup>
                     <ondown>49</ondown>
-                    <posy>0</posy>
-                    <width>417</width>
-                    <height>102</height>
-                    <texturefocus>keyboard/keyboard_spacef.png</texturefocus>
-                    <texturenofocus>keyboard/keyboard_spacenf.png</texturenofocus>
                     <include>Objects_KeyOffVars</include>
                 </control>
                 <control type="button" id="305">
                     <posx>504</posx>
+                    <label>&lt;</label>
                     <onleft>32</onleft>
                     <onright>306</onright>
                     <onup>8</onup>
                     <ondown>55</ondown>
-                    <label>&lt;</label>
                     <include>Objects_DoubleKeyOffSymbol</include>
                 </control>
                 <control type="button" id="306">
                     <posx>630</posx>
+                    <label>&gt;</label>
                     <onleft>305</onleft>
                     <onright>300</onright>
                     <onup>8</onup>
                     <ondown>57</ondown>
-                    <label>&gt;</label>
                     <include>Objects_DoubleKeyOffSymbol</include>
                 </control>
             </control>

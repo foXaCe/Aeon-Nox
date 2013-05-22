@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1118">
     <defaultcontrol always="true">450</defaultcontrol>
     <coordinates>
-        <system>1</system>
         <posx>0</posx>
         <posy>0</posy>
+        <system>1</system>
     </coordinates>
     <include>Animation_DialogPopup</include>
     <controls>
@@ -28,27 +28,25 @@
         </control>
         <control type="image">
             <posx>375</posx>
-            <posy>232</posy>
+            <posy>212</posy>
             <width>1172</width>
             <height>60</height>
-            <texture>osd/osd_settings_buttonnf.png</texture>
+            <texture border="1">osd/osd_settings_buttonnf.png</texture>
         </control>
         <control type="label">
             <posx>420</posx>
-            <posy>225</posy>
+            <posy>205</posy>
             <width>600</width>
             <height>60</height>
-            <textcolor>$VAR[TitleColorVar]</textcolor>
-            <font>Font_Bold19</font>
             <label>$LOCALIZE[31619]</label>
-            <aligny>center</aligny>
+            <font>Font_Bold33</font>
+            <textcolor>$VAR[TitleColorVar]</textcolor>
         </control>
         <control type="grouplist" id="450">
             <posx>375</posx>
-            <posy>292</posy>
+            <posy>272</posy>
             <width>1172</width>
             <height>540</height>
-            <itemgap>0</itemgap>
             <aligny>center</aligny>
             <pagecontrol>60</pagecontrol>
             <onleft>60</onleft>
@@ -60,12 +58,6 @@
                 <include>Objects_CommonSettingsButton</include>
                 <onclick>Skin.ToggleSetting(Show_Info_Paused)</onclick>
                 <selected>Skin.HasSetting(Show_Info_Paused)</selected>
-            </control>
-            <control type="radiobutton" id="452">
-                <label>31618</label>
-                <include>Objects_CommonSettingsButton</include>
-                <onclick>Skin.ToggleSetting(MoreFullscreenInfo)</onclick>
-                <selected>Skin.HasSetting(MoreFullscreenInfo)</selected>
             </control>
             <control type="radiobutton" id="453">
                 <label>31621</label>
@@ -102,6 +94,7 @@
                 <label>$LOCALIZE[31130]</label>
                 <label2>[COLOR $VAR[FontColorVar]]$INFO[system.addontitle(Skin.String(SubtitleScript_Path))][/COLOR]</label2>
                 <include>Objects_CommonSettingsButton</include>
+                <onclick>Dialog.Close(1118)</onclick>
                 <onclick>Skin.SetAddon(SubtitleScript_Path,xbmc.python.subtitles)</onclick>
             </control>
         </control>

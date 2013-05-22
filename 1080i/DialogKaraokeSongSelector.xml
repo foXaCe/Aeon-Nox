@@ -1,13 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="143">
-    <animation effect="slide" start="0,-60" end="0,0" time="100">WindowOpen</animation>
-    <animation effect="slide" start="0,0" end="0,-60" delay="400" time="100">WindowClose</animation>
+    <animation effect="slide" start="0,-60" end="0,0" time="80">WindowOpen</animation>
+    <animation effect="slide" end="0,-60" delay="320" time="80">WindowClose</animation>
     <controls>
         <control type="group">
             <posx>150</posx>
-            <posy>0</posy>
             <control type="image">
-                <posx>0</posx>
                 <posy>-15</posy>
                 <width>555</width>
                 <height>105</height>
@@ -18,18 +16,16 @@
                 <posy>3</posy>
                 <width>510</width>
                 <height>38</height>
-                <font>Font_Reg18</font>
+                <font>Font_Reg29</font>
                 <textcolor>$VAR[FontColorVar]</textcolor>
-                <aligny>center</aligny>
             </control>
             <control type="label" id="402">
                 <posx>22</posx>
                 <posy>40</posy>
                 <width>510</width>
                 <height>30</height>
-                <font>Font_Reg18</font>
+                <font>Font_Reg29</font>
                 <textcolor>blue</textcolor>
-                <aligny>center</aligny>
             </control>
         </control>
     </controls>

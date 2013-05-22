@@ -1,49 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window>
-    <id>123</id>
     <defaultcontrol>2</defaultcontrol>
     <coordinates>
-        <system>1</system>
         <posx>0</posx>
         <posy>0</posy>
+        <system>1</system>
     </coordinates>
     <animation type="WindowOpen" reversible="false">
-        <effect type="zoom" start="80" end="100" center="960,540" easing="out" tween="back" time="300" />
-        <effect type="fade" start="0" end="100" time="300" />
+        <effect type="zoom" start="80" end="100" center="960,540" tween="back" time="240" />
+        <effect type="fade" end="100" time="240" />
     </animation>
     <animation type="WindowClose" reversible="false">
-        <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="300" />
-        <effect type="fade" start="100" end="0" time="300" />
+        <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+        <effect type="fade" start="100" end="0" time="240" />
     </animation>
     <control type="image">
-        <posx>300</posx>
+        <posx>357</posx>
         <posy>180</posy>
-        <width>1322</width>
+        <width>1208</width>
         <height>722</height>
         <texture>osd/osd_settings_back_glow.png</texture>
         <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
         <visible>!Skin.HasSetting(DisableGlowbar)</visible>
         <include>PanelGlowFade</include>
-        <include>Animation_VisibleChange400</include>
-        <include>PanelGlowFade</include>
     </control>
     <controls>
         <control type="image">
-            <posx>300</posx>
+            <posx>357</posx>
             <posy>180</posy>
-            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
-            <width>1322</width>
+            <width>1208</width>
             <height>722</height>
             <texture>osd/osd_settings_back.png</texture>
+            <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
         </control>
         <control type="label" id="3">
             <posx>420</posx>
             <posy>225</posy>
             <width>600</width>
             <height>60</height>
-            <font>Font_Info</font>
             <label>$LOCALIZE[13406]</label>
-            <aligny>center</aligny>
+            <font>Font_Bold33</font>
+            <textcolor>$VAR[TitleColorVar]</textcolor>
         </control>
         <control type="label" id="4">
             <posx>375</posx>
@@ -51,7 +48,6 @@
             <width>1172</width>
             <height>600</height>
             <align>center</align>
-            <aligny>center</aligny>
             <label>13390</label>
             <font>Font_Info</font>
         </control>
@@ -68,38 +64,30 @@
             <pagecontrol>60</pagecontrol>
             <itemlayout height="60">
                 <control type="image">
-                    <posx>0</posx>
-                    <posy>0</posy>
                     <width>1172</width>
                     <height>60</height>
-                    <texture>osd/osd_settings_buttonnf.png</texture>
+                    <texture border="1">osd/osd_settings_buttonnf.png</texture>
                 </control>
                 <control type="label">
                     <posx>45</posx>
-                    <posy>0</posy>
                     <width>1082</width>
                     <height>60</height>
-                    <textcolor>grey</textcolor>
-                    <aligny>center</aligny>
                     <font>Font_Info</font>
+                    <textcolor>grey</textcolor>
                     <info>ListItem.Label</info>
                 </control>
             </itemlayout>
             <focusedlayout height="60">
                 <control type="image">
-                    <posx>0</posx>
-                    <posy>0</posy>
                     <width>1172</width>
                     <height>60</height>
+                    <texture border="8">views/tripanel/listselect_fo.png</texture>
                     <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
-                    <texture>views/tripanel/listselect_fo.png</texture>
                 </control>
                 <control type="label">
                     <posx>45</posx>
-                    <posy>0</posy>
                     <width>1082</width>
                     <height>60</height>
-                    <aligny>center</aligny>
                     <font>Font_Info</font>
                     <info>ListItem.Label</info>
                 </control>
@@ -117,10 +105,10 @@
             <posy>842</posy>
             <width>315</width>
             <height>60</height>
-            <font>Font_Reg14</font>
             <align>right</align>
-            <textcolor>grey</textcolor>
             <label>$INFO[Container(2).NumItems,, $LOCALIZE[31025]]$INFO[Container(2).CurrentPage, - $LOCALIZE[31024] (]$INFO[Container(2).NumPages,/,)]</label>
+            <font>Font_Reg25</font>
+            <textcolor>grey</textcolor>
         </control>
     </controls>
 </window>
